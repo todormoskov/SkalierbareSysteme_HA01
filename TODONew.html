@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="TODOTable.html">Übersicht</a></li>
+      <li><a href="TODONew.html">TODO erstellen</a></li>
+      <li><a href="#">Impressum</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+  <h2>
+    Neues TODO erstellen
+  </h2>
+
+  <hr>
+
+  <form>
+    <div class="form-group">
+      <label for="task">Aufgabe:</label>
+      <textarea class="form-control" rows="5" id="task"></textarea>
+    </div>
+  </form>
+
+  <form>
+    <div class="form-group">
+      <label for="daedline">Deadline:</label>
+      <input type="date" class="form-control" id="deadline">
+    </div>
+  </form>
+
+  <button type="button" class="btn btn-success">TODO erstellen</button>
+
+</div>
+
+
+
+
+
+</body>
+</html>
