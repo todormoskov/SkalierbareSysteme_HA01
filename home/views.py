@@ -43,10 +43,12 @@ def delete(request, aufgabe_id):
     if request.method == 'POST':
         form = TODOForm(request.POST, instance=Aufgaben.objects.get(pk=aufgabe_id))
         if form.is_valid():
-            form.delete()
+            Aufgaben.objects.get(pk=aufgabe_id).delete()
             messages.success(request, f'TODO gelöscht')
             return HttpResponseRedirect('/')
-    return HttpResponseRedirect('/add')
+        else:
+            messages.warning(request, form.errors)
+    return HttpResponseRedirect('/')
 
 def impressum(request):
     return render(request, 'home/Impressum.html')

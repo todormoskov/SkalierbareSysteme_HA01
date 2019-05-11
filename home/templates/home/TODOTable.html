@@ -33,7 +33,12 @@
 				<td>
 					<form action="{% url 'home-delete' aufgaben.id %}" method='POST'>
 						{% csrf_token %}
-					 	<button type="submit" class="btn btn-danger">Löschen</button>
+						<div class="input-group">
+    					<input type="hidden" name="aufgabe" value="{{ aufgaben.aufgabe }}">
+							<input type="hidden" name="deadline" value="{{ aufgaben.deadline|date:'Y-m-d'}}">
+							<input type="hidden" name="status" value="{{ aufgaben.status }}">
+    					<button type="submit" class="btn btn-danger">Löschen</button>
+  					</div>
 					</form>
 				</td>
 
