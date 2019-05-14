@@ -1,0 +1,22 @@
+{% extends "home/baseTemplate.html" %}
+{% load crispy_forms_tags %}
+{% block navbar-content %}
+<li><a href="/">Übersicht</a></li>
+<li class="active"><a href="/add">TODO erstellen</a></li>
+<li><a class="disabled">TODO bearbeiten</a></li>
+<li><a href="/impressum">Impressum</a></li>
+{% endblock %}
+
+{% block main-content %}
+<div class="container">
+  <h2>Neues TODO erstellen</h2>
+  <hr>
+  
+  <form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success"> TODO erstellen</button>
+  </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "home/baseTemplate.html" %}
+
+{% block navbar-content %}
+<li><a href="/">Übersicht</a></li>
+<li><a href="/add">TODO erstellen</a></li>
+<li><a class="disabled">TODO bearbeiten</a></li>
+<li class="active"><a href="/impressum">Impressum</a></li>
+{% endblock %}
+
+{% block main-content %}
+<div class="container">
+  <h2>Impressum</h2>
+  <hr>
+  <p>Todor Moskov</p>
+  <p>Muhammad Reza Febrian</p>
+</div>
+{% endblock %}

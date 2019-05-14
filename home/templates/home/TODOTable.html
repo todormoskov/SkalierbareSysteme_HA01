@@ -1,0 +1,51 @@
+{% extends "home/baseTemplate.html" %}
+
+{% block navbar-content %}
+<li class="active"><a href="/">Übersicht</a></li>
+<li><a href="/add">TODO erstellen</a></li>
+<li><a class="disabled">TODO bearbeiten</a></li>
+<li><a href="/impressum">Impressum</a></li>
+{% endblock %}
+
+{% block main-content %}
+<div class="container">
+	<h2>TODO Liste</h2>
+	<hr>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Aufgabe</th>
+        <th>Deadline</th>
+        <th>Status</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for aufgaben in Aufgaben %}
+      <tr>
+        <td>{{ aufgaben.aufgabe }}</td>
+        <td>{{ aufgaben.deadline }}</td>
+        <td>{{ aufgaben.status }}%</td>
+
+        <td><a href="{% url 'home-edit' aufgaben.id %}" type="button" class="btn btn-warning">Bearbeiten</a></td>
+				<td>
+					<form action="{% url 'home-delete' aufgaben.id %}" method='POST'>
+						{% csrf_token %}
+						<div class="input-group">
+    					<input type="hidden" name="aufgabe" value="{{ aufgaben.aufgabe }}">
+							<input type="hidden" name="deadline" value="{{ aufgaben.deadline|date:'Y-m-d'}}">
+							<input type="hidden" name="status" value="{{ aufgaben.status }}">
+    					<button type="submit" class="btn btn-danger">Löschen</button>
+  					</div>
+					</form>
+				</td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+{% endblock %}
